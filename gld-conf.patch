@@ -1,0 +1,19 @@
+diff -uNr gld-1.6.orig/gld.conf gld-1.6/gld.conf
+--- gld-1.6.orig/gld.conf	2005-09-16 12:11:45.000000000 +0200
++++ gld-1.6/gld.conf	2006-04-26 10:16:45.935157500 +0200
+@@ -24,13 +24,13 @@
+ # The user used to run gld (default value is no user change)
+ # comment the line to deactivate it.
+ #
+-USER=nobody
++USER=gld
+ 
+ #
+ # The group used to run gld (default value is no group change)
+ # comment the line to deactivate it.
+ #
+-GROUP=nobody
++GROUP=gld
+ 
+ #
+ # Maximum simultaneous connexions (default is 100)

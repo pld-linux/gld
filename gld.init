@@ -1,0 +1,79 @@
+#!/bin/sh
+#
+# gld		GLD - standalone greylisting server for Postfix
+#
+# chkconfig:	2345 79 31
+# description:	GLD - standalone greylisting server for Postfix
+#
+# processname:	gld
+# pidfile:	/var/run/gld.pid
+#
+
+# Source function library
+. /etc/rc.d/init.d/functions
+
+# Get network config
+. /etc/sysconfig/network
+
+# Get service config
+[ -f /etc/sysconfig/gld ] && . /etc/sysconfig/gld
+
+# Check that networking is up.
+if is_yes "${NETWORKING}"; then
+	if [ ! -f /var/lock/subsys/network -a "$1" != stop -a "$1" != status ]; then
+		msg_network_down gld
+		exit 1
+	fi
+else
+	exit 0
+fi
+
+RETVAL=0
+
+# See how we were called.
+case "$1" in
+  start)
+	# Check if the service is already running?
+	if [ ! -f /var/lock/subsys/gld ]; then
+		msg_starting gld
+		daemon gld $OPTIONS
+		RETVAL=$?
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/gld
+	else
+		msg_already_running gld
+	fi
+	;;
+  stop)
+	if [ -f /var/lock/subsys/gld ]; then
+		msg_stopping gld
+		killproc gld
+		rm -f /var/lock/subsys/gld >/dev/null 2>&1
+	else
+		msg_not_running gld
+	fi
+	;;
+  restart)
+	$0 stop
+	$0 start
+	exit $?
+	;;
+  reload|force-reload)
+	if [ -f /var/lock/subsys/gld ]; then
+		msg_reloading gld
+		killproc gld -HUP
+		RETVAL=$?
+	else
+		msg_not_running gld >&2
+		exit 7
+	fi
+	;;
+  status)
+	status gld
+	exit $?
+	;;
+  *)
+	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
+	exit 3
+esac
+
+exit $RETVAL

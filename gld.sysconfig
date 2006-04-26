@@ -1,0 +1,7 @@
+# gld startup configuration file
+
+# Try to define nice-level for running gld
+SERVICE_RUN_NICE_LEVEL="+5"
+
+# -d enable debug mode
+OPTIONS=""
