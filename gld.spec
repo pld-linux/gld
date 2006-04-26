@@ -18,15 +18,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Gld is a standalone greylisting server for Postfix. It listen on a TCP
 port and use MySQL for storing data. The server supports whitelists
 based on sender,sender_domain and client_ip. It supports also light
-greylisting and DNS white lists. Gld is free and under the GPL
-licence.
+greylisting and DNS white lists.
 
 %description -l pl
 GLD to serwer "szarych list" dla Postfiksa. Dane przechowuje w MYSQL,
 do komunikacji u¿ywa TCP/IP. Serwer umo¿liwia listowanie bazuj±ce na
 NADAWCY, DOMENIE_NADAWCY oraz ADRESIE_IP_CLIENTA. Wspiera równie¿
-"light greylisting" i "DNS white lists". Gld jest darmowym
-oprogramowaniem na licencji GPL.
+"light greylisting" i "DNS white lists".
 
 %prep
 %setup -q
