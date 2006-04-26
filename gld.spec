@@ -5,7 +5,7 @@ Version:	1.6
 Release:	1
 License:	GPL
 Group:		Daemons
-Source0:	http://www.gasmi.netown/%{name}-%{version}.tgz
+Source0:	http://www.gasmi.net/down/%{name}-%{version}.tgz
 # Source0-md5:	95cfe17b92767db4460385972c7f6774
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
