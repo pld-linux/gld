@@ -11,6 +11,7 @@ Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		%{name}-conf.patch
 URL:		http://www.gasmi.net/gld.html
+BuildRequires:	autoconf
 BuildRequires:	mysql-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
