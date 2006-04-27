@@ -1,5 +1,5 @@
-Summary:	GLD is a standalone greylisting server for Postfix
-Summary(pl):	GLD to serwer "szarych list" dla Postfiksa
+Summary:	GLD - a standalone greylisting server for Postfix
+Summary(pl):	GLD - serwer "szarych list" dla Postfiksa
 Name:		gld
 Version:	1.6
 Release:	1
@@ -16,16 +16,17 @@ BuildRequires:	mysql-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Gld is a standalone greylisting server for Postfix. It listen on a TCP
+Gld is a standalone greylisting server for Postfix. It listens on a TCP
 port and use MySQL for storing data. The server supports whitelists
-based on sender,sender_domain and client_ip. It supports also light
+based on sender, sender_domain and client_ip. It supports also light
 greylisting and DNS white lists.
 
 %description -l pl
-GLD to serwer "szarych list" dla Postfiksa. Dane przechowuje w MYSQL,
-do komunikacji u¿ywa TCP/IP. Serwer umo¿liwia listowanie bazuj±ce na
-NADAWCY, DOMENIE_NADAWCY oraz ADRESIE_IP_CLIENTA. Wspiera równie¿
-"light greylisting" i "DNS white lists".
+GLD to samodzielny serwer "szarych list" dla Postfiksa. Dane
+przechowuje w bazie MySQL, do komunikacji u¿ywa TCP/IP. Serwer
+umo¿liwia listowanie W oparciu o nadawcê, domenê nadawcy i adres IP
+klienta (sender, sender_domain, client_ip). Obs³uguje równie¿ "light
+greylisting" i "DNS white lists".
 
 %prep
 %setup -q
@@ -39,7 +40,6 @@ NADAWCY, DOMENIE_NADAWCY oraz ADRESIE_IP_CLIENTA. Wspiera równie¿
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/etc/{rc.d/init.d,sysconfig},%{_sbindir}} \
 	$RPM_BUILD_ROOT%{_var}/lib/%{name}
 
@@ -48,7 +48,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/%{name}
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/%{name}
 
 install gld $RPM_BUILD_ROOT%{_sbindir}
-install gld.conf $RPM_BUILD_ROOT%{_sysconfdir}/
+install gld.conf $RPM_BUILD_ROOT%{_sysconfdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
