@@ -1,8 +1,12 @@
+#
+# Conditional build:
+%bcond_with	pgsql	# build with support for PostgreSQL
+#
 Summary:	GLD - a standalone greylisting server for Postfix
 Summary(pl):	GLD - serwer "szarych list" dla Postfiksa
 Name:		gld
 Version:	1.7
-Release:	1
+Release:	2
 License:	GPL
 Group:		Daemons
 Source0:	http://www.gasmi.net/down/%{name}-%{version}.tgz
@@ -12,7 +16,8 @@ Source2:	%{name}.sysconfig
 Patch0:		%{name}-conf.patch
 URL:		http://www.gasmi.net/gld.html
 BuildRequires:	autoconf
-BuildRequires:	mysql-devel
+%{!?with_pgsql:BuildRequires:	mysql-devel}
+%{?with_pgsql:BuildRequires:	postgresql-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,7 +39,9 @@ greylisting" i "DNS white lists".
 
 %build
 %{__autoconf}
-%configure
+%configure \
+	%{?with_pgsql:--with-pgsql} \
+	%{!?with_pgsql:--with-mysql}
 
 %{__make}
 
