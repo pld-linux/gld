@@ -3,7 +3,7 @@
 %bcond_with	pgsql	# build with support for PostgreSQL
 #
 Summary:	GLD - a standalone greylisting server for Postfix
-Summary(pl):	GLD - serwer "szarych list" dla Postfiksa
+Summary(pl.UTF-8):   GLD - serwer "szarych list" dla Postfiksa
 Name:		gld
 Version:	1.7
 Release:	2
@@ -26,11 +26,11 @@ port and use MySQL for storing data. The server supports whitelists
 based on sender, sender_domain and client_ip. It supports also light
 greylisting and DNS white lists.
 
-%description -l pl
+%description -l pl.UTF-8
 GLD to samodzielny serwer "szarych list" dla Postfiksa. Dane
-przechowuje w bazie MySQL, do komunikacji u¿ywa TCP/IP. Serwer
-umo¿liwia listowanie W oparciu o nadawcê, domenê nadawcy i adres IP
-klienta (sender, sender_domain, client_ip). Obs³uguje równie¿ "light
+przechowuje w bazie MySQL, do komunikacji uÅ¼ywa TCP/IP. Serwer
+umoÅ¼liwia listowanie W oparciu o nadawcÄ™, domenÄ™ nadawcy i adres IP
+klienta (sender, sender_domain, client_ip). ObsÅ‚uguje rÃ³wnieÅ¼ "light
 greylisting" i "DNS white lists".
 
 %prep
