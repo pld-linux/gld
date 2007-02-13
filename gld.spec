@@ -3,7 +3,7 @@
 %bcond_with	pgsql	# build with support for PostgreSQL
 #
 Summary:	GLD - a standalone greylisting server for Postfix
-Summary(pl.UTF-8):   GLD - serwer "szarych list" dla Postfiksa
+Summary(pl.UTF-8):	GLD - serwer "szarych list" dla Postfiksa
 Name:		gld
 Version:	1.7
 Release:	2
