@@ -6,7 +6,7 @@ Summary:	GLD - a standalone greylisting server for Postfix
 Summary(pl.UTF-8):	GLD - serwer "szarych list" dla Postfiksa
 Name:		gld
 Version:	1.7
-Release:	3
+Release:	4
 License:	GPL
 Group:		Daemons
 Source0:	http://www.gasmi.net/down/%{name}-%{version}.tgz
